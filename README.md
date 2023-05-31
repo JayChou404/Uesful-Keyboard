@@ -1,3 +1,5 @@
+# Useful KeyBoard
+
 我想在 Windows 平台中，拥有跟有用的自定义键盘（从软件层面修改）。
 
 对于普通的键盘，通过`长按(long press)`、`组合键`和`层(layer)`这3个，即可实现强大的功能
@@ -60,7 +62,7 @@
 
 ## 安装
 **不安装任何软件的方法**
-直接启用`usefulKB.exe`
+直接下载启用[usefulKB.exe](usefulKB.exe)
 
 **安装AutoHotkey的方法**
 1. 下载安装[AutoHotKey](https://www.autohotkey.com/)
