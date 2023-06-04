@@ -8,17 +8,13 @@ SetCapsLockState "AlwaysOff" ; CapsLK 始终关闭
 global capslock := 0
 
 global capslock_Once = 0
-global capslock_Up = 0
 
-*CapsLock::
+$CapsLock::
 {
-    global capslock := GetKeyState("CapsLock","P")
-    Sleep 50
-}
-*CapsLock Up::
-{
-    global capslock := 0
-    return
+    if (!capslock_Once and GetKeyState("CapsLock", "P"))
+    {
+        capslock_Once := 1
+    } 
 }
 
 global one := 0 ;
