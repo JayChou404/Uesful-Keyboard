@@ -1,25 +1,27 @@
 #UseHook true ; 强制使用键盘钩子
 
-SetKeyDelay 300 ; 设置一个合适的按键延迟时间，以降低按键发送速度。
+SetKeyDelay 30 ; 设置一个合适的按键延迟时间，以降低按键发送速度。
+
+SetCapsLockState "AlwaysOff" ; CapsLK 始终关闭
 
 ; 判断 CapsLock 是否按下
-SetCapsLockState "AlwaysOff"
-
 global capslock := 0
 
-global one := 0
+global capslock_Once = 0
+global capslock_Up = 0
 
-*CapsLock::{
-    SetCapsLockState 0
+*CapsLock::
+{
     global capslock := GetKeyState("CapsLock","P")
     Sleep 50
 }
 *CapsLock Up::
 {
-    SetCapsLockState 0
     global capslock := 0
     return
 }
+
+global one := 0 ;
 
 ; 单手操作
 #HotIf (one)
@@ -50,7 +52,7 @@ global one := 0
     b::b
 #HotIf
 
-
+; 当按下 Capslock 时, 修改键盘操作方式
 #HotIf (capslock)
     $*p::CapsAction("BS Down")
     $*p Up::CapsAction("BS Up")
@@ -81,6 +83,9 @@ global one := 0
     $r::^z
     f::Enter
     ; f & j::Enter
+    7::F7
+
+    ; 启动单手模式
     Alt & f::
     {
         global 
@@ -99,6 +104,7 @@ global one := 0
     {
         CapsAction("LShift Up")
     }   
+
     ; 当按下 `Space` 后, `Space` 变为 `Ctrl`
     Space::CapsAction("LCtrl Down")
     ~SPace Up::
@@ -107,7 +113,8 @@ global one := 0
     }
 #HotIf
 
-~v Up::
+; 在 HotIf 再次弹起, 不知道是否能有效防止 Ctrl 和 Shift 回弹
+~c Up::
 {
     CapsAction("LShift Up")
 }
@@ -116,6 +123,7 @@ global one := 0
     CapsAction("LCtrl Up") 
 }
 
+; send 发送函数
 CapsAction(action)
 {
     Send "{Blind}{" action "}"
@@ -175,4 +183,3 @@ $/ UP::
     stime := 0
     slash := 0
 }
-
