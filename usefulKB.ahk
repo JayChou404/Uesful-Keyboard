@@ -7,14 +7,17 @@ SetCapsLockState "AlwaysOff" ; CapsLK 始终关闭
 ; 判断 CapsLock 是否按下
 global capslock := 0
 
-global capslock_Once = 0
-
 $CapsLock::
 {
-    if (!capslock_Once and GetKeyState("CapsLock", "P"))
+    if (!capslock and GetKeyState("CapsLock", "P"))
     {
-        capslock_Once := 1
-    } 
+        global capslock := 1
+    }
+}
+
+$CapsLock Up::
+{
+    global capslock := 0
 }
 
 global one := 0 ;
@@ -94,15 +97,29 @@ global one := 0 ;
         return
     }
     
-    ; 当按下 `v` 后, `v` 变为 `Shift`
-    *c::CapsAction("LShift Down")
+    ; 当按下 `c` 后, `c` 变为 `Shift`
+    global c_only := 0
+    *c::
+    {
+        if (!c_only and GetKeyState("c", "P")) 
+        {
+        CapsAction("LShift Down")
+        }
+    }
     ~c Up::
     {
         CapsAction("LShift Up")
     }   
 
     ; 当按下 `Space` 后, `Space` 变为 `Ctrl`
-    Space::CapsAction("LCtrl Down")
+    global space_Only := 0
+    Space::
+    {
+        if (!space_Only and GetKeyState("Space", "P")) 
+        {
+            CapsAction("LCtrl Down")
+        }
+    }
     ~SPace Up::
     {
         CapsAction("LCtrl Up") 
