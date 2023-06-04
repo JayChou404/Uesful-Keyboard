@@ -7,7 +7,7 @@ SetCapsLockState "AlwaysOff" ; CapsLK 始终关闭
 ; 判断 CapsLock 是否按下
 global capslock := 0
 
-$CapsLock::
+*CapsLock::
 {
     if (!capslock and GetKeyState("CapsLock", "P"))
     {
@@ -15,7 +15,7 @@ $CapsLock::
     }
 }
 
-$CapsLock Up::
+*CapsLock Up::
 {
     global capslock := 0
 }
