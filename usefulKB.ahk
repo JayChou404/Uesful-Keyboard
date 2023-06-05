@@ -1,29 +1,67 @@
-#UseHook true ; 强制使用键盘钩子
-
-SetKeyDelay 30 ; 设置一个合适的按键延迟时间，以降低按键发送速度。
-
+; 运行配置
+GLOBAL DEBUGMODE := true ; 调试模式
+GLOBAL TICKRATE := 20 ; 内部逻辑刷新率为每秒50次.
+GLOBAL PRESSWAIT := 200 ; 按键被视为按下的最小时长为250毫秒.
 SetCapsLockState "AlwaysOff" ; CapsLK 始终关闭
+SetKeyDelay TICKRATE ; 设置按键延迟.
+#SingleInstance Force ; 只运行一个同名的脚本实例
+; #UseHook true ; 强制使用键盘钩子
 
-; 判断 CapsLock 是否按下
-global capslock := 0
+; 状态标记
+global capslock := false
+global one := false ;
+global c_only := false
 
+
+; 函数调用区域
+
+; send 发送函数
+CapsAction(action)
+{
+    Send "{Blind}{" action "}"
+}
+
+; 调用 提示框 函数
+tip(text, y, window, time) {
+    y := y * 30
+    time := time * 1000
+    ToolTip(text, 1700, y + 850, window)
+    SetTimer () => ToolTip(,,,window), -time
+}
+
+; 调用测试窗口
+tmp(text, y) {
+    if DEBUGMODE
+        ToolTip(text, 1600, y*30+800, 20)
+}
+
+; CapsLock 状态判断,
 *CapsLock::
 {
-    if (!capslock and GetKeyState("CapsLock", "P"))
+    ; capslock 按下
+    if (!capslock == true and GetKeyState("CapsLock", "P"))
     {
-        global capslock := 1
+        global capslock := A_TickCount
+        if (DEBUGMODE)
+            toolTip("超级模式_启动", 1700, 850)
     }
 }
 
 *CapsLock Up::
 {
-    global capslock := 0
+    if (A_PriorKey = "CapsLock" && (A_TickCount - capslock) < 300)
+    {
+        if GetKeyState("CapsLock", "T") = 0
+            SetCapsLockState true
+        else
+            SetCapsLockState "AlwaysOff"
+    }
+    global capslock := false
+    Tip("超级模式_关闭", 0, 1, 1)
 }
 
-global one := 0 ;
-
 ; 单手操作
-#HotIf (one)
+#HotIf (!one == false)
     q::PgUp
     w::Up
     e::PgDn
@@ -52,7 +90,7 @@ global one := 0 ;
 #HotIf
 
 ; 当按下 Capslock 时, 修改键盘操作方式
-#HotIf (capslock)
+#HotIf (!capslock == false)
     $*p::CapsAction("BS Down")
     $*p Up::CapsAction("BS Up")
     $*e::CapsAction("Esc Down")
@@ -80,49 +118,45 @@ global one := 0 ;
     $s::^+2
     $a::^+1
     $r::^z
-    f::Enter
-    ; f & j::Enter
+    $*f::Enter
     7::F7
 
-    ; 启动单手模式
+    ; 切换单手模式的启用状态
     Alt & f::
     {
         global 
-        if (!one)
+        if (one == false)
         {
-            one := 1
+            one := true
+            tip("单手模式_启用", 1, 2, 2)
             return
         }
-        one := 0
+        one := false
+        Tip("单手模式_关闭", 1, 2, 2)
         return
     }
     
     ; 当按下 `c` 后, `c` 变为 `Shift`
-    global c_only := 0
     *c::
     {
-        if (!c_only and GetKeyState("c", "P")) 
-        {
+        
         CapsAction("LShift Down")
-        }
+        tmp("c_启用", 0)
     }
     ~c Up::
     {
         CapsAction("LShift Up")
-    }   
+        tmp("c_关闭", 1)
+    }
 
     ; 当按下 `Space` 后, `Space` 变为 `Ctrl`
-    global space_Only := 0
-    Space::
+    *Space::
     {
-        if (!space_Only and GetKeyState("Space", "P")) 
-        {
-            CapsAction("LCtrl Down")
-        }
+        CapsAction("LCtrl Down")
     }
-    ~SPace Up::
+    ~Space Up::
     {
-        CapsAction("LCtrl Up") 
+        CapsAction("LCtrl Up")
     }
 #HotIf
 
@@ -130,28 +164,23 @@ global one := 0 ;
 ~c Up::
 {
     CapsAction("LShift Up")
+    tmp("c_关闭", 2)
 }
-~SPace Up::
+~Space Up::
 {
     CapsAction("LCtrl Up") 
 }
 
-; send 发送函数
-CapsAction(action)
-{
-    Send "{Blind}{" action "}"
-}
-
 ; 修改 `;` 长按功能，长按为 ‘Ctrl’ 键
-global stime := 0
+global stime := false
 global single := 0
 $;::{
     SendInput "{LCtrl Down}"
     global single
-    if (!single) {
+    if (!single == true) {
         global stime := A_TickCount
     }
-    single := 1
+    single := true
 }
 
 $; UP::
@@ -164,21 +193,21 @@ $; UP::
 
     if (A_PriorKey = ";" && (A_TickCount - stime) < 300)
     {
+        tmp(A_TickCount - stime, 3)
         SendInput "{;}"
     }
-    stime := 0
-    single := 0
+    single := false
 }
 
 ; 修改 ‘/’ 长按功能，长按为 ‘shift’ 键
-global slash := 0
+global slash := false
 $/::{
     SendInput "{LShift Down}"
     global slash
-    if (!slash) {
+    if (!slash == true) {
         global stime := A_TickCount
     }
-    slash := 1
+    slash := true
 }
 
 $/ UP::
@@ -191,8 +220,8 @@ $/ UP::
 
     if (A_PriorKey = "/" && (A_TickCount - stime) < 300)
     {
+        tmp(A_TickCount - stime, 3)
         SendInput "{/}"
     }
-    stime := 0
-    slash := 0
+    slash := false
 }
