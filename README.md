@@ -1,5 +1,5 @@
 # Useful KeyBoard
-[中文](README_CN.md) 和 [English](README.md)
+[中文](README_CN.md) [English](README.md)
 
 On the Windows platform, you can enhance the functionality of your keyboard by using AutoHotkey. By combining various features, you can create a powerful custom keyboard.
 

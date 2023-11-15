@@ -1,34 +1,33 @@
-# Useful KeyBoard
+### Useful KeyBoard
 [中文](README_CN.md) 和 [English](README.md)
 
 在 Windows 平台中，通过 autoHotkey 重新利用自定义键盘功能。组合其它功能实现强大的
 
 
-
-## 使用的技术
+#### 使用的技术
 - AutoHotkey
 
-## 平台
+#### 平台
 
 - Windows
 
-## 个人方案
+#### 个人方案
 任何自定义功能都是根据个人习惯设置的，这些很多功能比较繁杂。
 
 > 其中脚本中还存在我无法解决的 bug()
 >
 >- 按下`CapsLk` + 其它操作时，脚本极其容易崩溃，还会时不时的错误发送被禁用的按键，可能出现大写状态被 `;` 所控制，就很奇怪
 
-## 修改 `;` 与 `/` 的长按功能
+#### 修改 `;` 与 `/` 的长按功能
 
 - 修改 `;` 长按功能（短按功能不变），长按为 `Ctrl` 键
 - 修改 `/` 长按功能（短按功能不变），长按为 `Shift` 键
 
-## 大写锁定键的修改
+#### 大写锁定键的修改
 - 取消 `caps lock`原有的功能
 - 长按进入超级模式
 
-## 入超级模式
+#### 入超级模式
 
 ![useful Keyboard](images/capsLK-Down.png)
 **长按**`caps lock`即可激活超级模式，而不像 vim 需要按下回弹后才能切换）。按下`caps lock` 键后，键盘功能改变：
@@ -45,18 +44,18 @@
 - `c`实现`Shift`（进行多选等操作）
 - `Space`实现`Ctrl`
 
-## 单手模式
+#### 单手模式
 > `caps lock`+`Alt`+`f` 打开**单手模式**
 
 - 使用 `q`/`e` 实现向**上**/**下**翻页
 - 使用 `w`/`s`/`a`/`d` 实现**上**/**下**/**左**/**右**
 
-<!-- ## 想法
+<!-- #### 想法
 - 实现大众化
 - 图形化界面
 - 能简单自定义热键功能 -->
 
-## 安装
+#### 安装
 **不安装任何软件的方法**
 直接下载启用[usefulKB.exe](usefulKB.exe)
 
@@ -68,7 +67,7 @@ shell:startup
 ```
 将文件[usefulKB.ahk](usefulKB.ahk)，让这个AutoHotKey脚本可以在开机时自启动
 
-## 感谢以下
+#### 感谢以下
 
 - [jasonrudolph/keyboard: ⌨ Toward a more useful keyboard (github.com)](https://github.com/jasonrudolph/keyboard#a-more-useful-caps-lock-key)
 - [boppreh/keyboard: Hook and simulate global keyboard events on Windows and Linux. (github.com)](https://github.com/boppreh/keyboard#keyboard.on_press)
