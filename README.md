@@ -1,31 +1,31 @@
-# Useful KeyBoard
+### Useful KeyBoard
 [中文](README_CN.md) [English](README.md)
 
 On the Windows platform, you can enhance the functionality of your keyboard by using AutoHotkey. By combining various features, you can create a powerful custom keyboard.
 
-## Technologies Used
+#### Technologies Used
 - AutoHotkey
 
-## Platform
+#### Platform
 - Windows
 
-## Personal Solution
+#### Personal Solution
 Customizing keyboard functionality is a matter of personal preference, and there are many complex features involved.
 
 > However, there are some bugs in the script that I couldn't resolve:
 >
 > - When pressing `CapsLk` along with other operations, the script is prone to crashes and occasionally sends disabled keystrokes. It may result in the toggle between uppercase and lowercase being controlled by the semicolon key (`;`), which is quite strange.
 
-## Modification of Long-Press Functions for `;` and `/`
+#### Modification of Long-Press Functions for `;` and `/`
 
 - Modify the long-press function for `;` (while keeping the short-press function unchanged) to act as the `Ctrl` key.
 - Modify the long-press function for `/` (while keeping the short-press function unchanged) to act as the `Shift` key.
 
-## Modification of Caps Lock Key
+#### Modification of Caps Lock Key
 - Disable the original functionality of the `Caps Lock` key.
 - Enter a super mode when the key is long-pressed.
 
-## Super Mode
+#### Super Mode
 ![useful Keyboard](images/capsLK-Down.png)
 To activate the super mode, simply **long-press** the `Caps Lock` key (no need to release it like in Vim). When the `Caps Lock` key is pressed, the keyboard's functionality changes as follows:
 
@@ -41,18 +41,18 @@ To activate the super mode, simply **long-press** the `Caps Lock` key (no need t
 - `c` for `Shift` (used for multiple selections and other operations).
 - `Space` for `Ctrl`.
 
-## One-Handed Mode
+#### One-Handed Mode
 > Use `caps lock` + `Alt` + `f` to enable **one-handed mode**.
 
 - Use `q`/`e` to navigate **up**/**down** the page.
 - Use `w`/`s`/`a`/`d` to navigate **up**/**down**/**left**/**right**.
 
-<!-- ## Ideas
+<!-- #### Ideas
 - Make it more user-friendly.
 - Add a graphical interface.
 - Allow simple customization of hotkey functions. -->
 
-## Installation
+#### Installation
 **Method 1: Without installing any software**
 Simply download and run [usefulKB.exe](usefulKB.exe).
 
@@ -64,7 +64,7 @@ shell:startup
 ```
 This will open the Startup folder. Place the [usefulKB.ahk](usefulKB.ahk) file in this folder to enable auto-startup of the AutoHotKey script.
 
-## Acknowledgements
+#### Acknowledgements
 
 - [jasonrudolph/keyboard: ⌨ Toward a more useful keyboard (github.com)](https://github.com/jasonrudolph/keyboard#a-more-useful-caps-lock-key)
 - [boppreh/keyboard: Hook and simulate global keyboard events on Windows and Linux. (github.com)](https://github.com/boppreh/keyboard#keyboard.on_press)
