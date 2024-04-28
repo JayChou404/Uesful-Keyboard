@@ -15,7 +15,7 @@
 
 CapsLock & ,:: Sd("{Del}")          ; , = Del char after
 CapsLock & .:: Sd("^{Del}")         ; . = Del word after
-CapsLock & /:: Sd("+{End}{Del}")    ; / = Del all  after
+; CapsLock & /:: Sd("+{End}{Del}")    ; / = Del all  after
 CapsLock & m:: Sd("{BS}")           ; m = Del char before
 CapsLock & n:: Sd("^{BS}")          ; n = Del word before
 CapsLock & b:: Sd("+{Home}{Del}")   ; b = Del all  before

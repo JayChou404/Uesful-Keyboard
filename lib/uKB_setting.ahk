@@ -8,6 +8,9 @@
 
 ; If the script is not elevated, relaunch as administrator and kill current instance:
 
+#SingleInstance force ;只允许单个该脚本运行,脚本强制替换
+A_HotkeyModifierTimeout := 0  ;影响热键修饰符的行为：CTRL、ALT、WIN 和 SHIFT。设为 0 时则总是超时 (修饰键总是不会被推回到按下的状态).
+
 ; 管理员运行
 full_command_line := DllCall("GetCommandLine", "str")
 

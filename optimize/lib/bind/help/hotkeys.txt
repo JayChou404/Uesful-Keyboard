@@ -1,0 +1,13 @@
+常用:= 
+CapsLock + /=打开/关闭帮助
+CapsLock + \=锁定/关闭大写
+CapsLock    =Esc退出或中断
+模式:= 
+CapsLock + W=上
+CapsLock + A=左
+CapsLock + S=下
+CapsLock + D=右
+CapsLock + W,W=PgUp（向上翻页）
+CapsLock + S,S=PgDown（向下翻页）
+CapsLock + A,A=Home（移到最前）
+CapsLock + D,D=End（移到最后）

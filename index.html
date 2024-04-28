@@ -1,0 +1,93 @@
+<!-- Index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive BERT Model Visualization</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.9/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="flex flex-row justify-center items-start space-x-4 p-5">
+  
+  <!-- Part of the Pre-training Section -->
+<!-- Part of the Pre-training Section -->
+<div class="flex flex-col items-center mb-4">
+  <!-- NSP and Mask LM -->
+  <div class="flex justify-between items-center w-full mb-2">
+    <span class="bg-blue-200 px-2 py-1 rounded-full">NSP</span>
+    <span class="bg-red-200 px-2 py-1 rounded-full">Mask LM</span>
+  </div>
+  
+  <!-- Tokens and Embeddings -->
+  <div class="flex items-center w-full mb-2">
+    <span class="bg-blue-400 px-2 py-1 rounded">[CLS]</span>
+    <!-- Embedding tokens E -->
+    <div class="flex-grow flex justify-around">
+      <!-- Repeat this for as many embeddings as needed -->
+      <span class="bg-blue-300 px-2 py-1 rounded">E1</span>
+      <!-- ... -->
+      <span class="bg-blue-300 px-2 py-1 rounded">EN</span>
+    </div>
+  </div>
+  
+  <!-- Outputs T -->
+  <div class="flex items-center w-full">
+    <!-- Repeat this for as many outputs as needed -->
+    <span class="bg-green-400 px-2 py-1 rounded">T1</span>
+    <!-- ... -->
+    <span class="bg-green-400 px-2 py-1 rounded">TN</span>
+  </div>
+  
+  <!-- Masked Sentences -->
+  <div class="flex flex-col w-full mt-4">
+    <div class="bg-gray-200 p-2 rounded mb-2 text-center">Masked Sentence A</div>
+    <div class="bg-gray-200 p-2 rounded text-center">Masked Sentence B</div>
+  </div>
+</div>
+
+  
+
+  <!-- Fine-tuning Section -->
+<!-- Part of the Fine-tuning Section -->
+<div class="flex flex-col items-center mb-4">
+  <!-- Tasks Labels -->
+  <div class="flex justify-between items-center w-full mb-2">
+    <span class="bg-purple-200 px-2 py-1 rounded-full">MNLI / NER</span>
+    <span class="bg-yellow-200 px-2 py-1 rounded-full">SQuAD</span>
+  </div>
+  
+  <!-- Question and Paragraph -->
+  <div class="flex flex-col w-full mt-4">
+    <div class="bg-gray-200 p-2 rounded mb-2 text-center">Question</div>
+    <div class="bg-gray-200 p-2 rounded text-center">Paragraph</div>
+  </div>
+  
+  <!-- BERT Outputs for Fine-tuning -->
+  <div class="flex items-center w-full mt-4">
+    <span class="bg-orange-400 px-2 py-1 rounded">Start/End Span</span>
+  </div>
+</div>
+
+
+</div>
+
+<script src="app.js">
+  // app.js
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Example: Add event listener to token elements for hover effect
+  const tokens = document.querySelectorAll('.token');
+  tokens.forEach(token => {
+    token.addEventListener('mouseover', (e) => {
+      e.target.classList.toggle('bg-blue-500'); // Change color on hover
+    });
+    token.addEventListener('mouseout', (e) => {
+      e.target.classList.toggle('bg-blue-500'); // Revert color on mouse out
+    });
+  });
+});
+
+</script>
+</body>
+</html>

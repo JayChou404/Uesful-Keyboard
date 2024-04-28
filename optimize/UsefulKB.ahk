@@ -1,12 +1,13 @@
 /************************************************************************
  * @description 主入口
- * @filek
- * @author
- * @date 2023/06/07
- * @version 0.0.0
+ * @file UsefulKB.ahk
+ * @author 
+ * @date 2024/03/13 
+ * @version 0.1.1
  ***********************************************************************/
+#Requires AutoHotkey v2.0
 
-;---- Initializer ----
+;---- Initializer ----  
 #Include %A_LineFile%\..\lib\uKB_setting.ahk
 
 ;---- Function ----
@@ -14,3 +15,6 @@
 
 ;---- bind ----
 #Include %A_LineFile%\..\lib\uKB_bind.ahk
+
+;---- test ----
+; #Include %A_LineFile%\..\test.ahk

@@ -11,8 +11,7 @@
  * @version 0.0.0
  ***********************************************************************/
 
-global stime := false
-global single := 0
+
 
 ;-x--- key change ----
 #Include %A_LineFile%\..\bind\uKB_keyChange.ahk
