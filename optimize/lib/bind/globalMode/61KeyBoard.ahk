@@ -43,8 +43,8 @@ $*Space UP::
     *s::SendBlind "{Down}"
     *d::SendBlind "{Right}"
     
-    *z::SendBlind "{Delete}" ; 删除
-    *x::SendBlind "{Backspace}" ; 退格
+    *x::SendBlind "{Delete}" ; 删除
+    *z::SendBlind "{Backspace}" ; 退格
 
     *f::SendBlind "{Enter}" ; 回车
 
