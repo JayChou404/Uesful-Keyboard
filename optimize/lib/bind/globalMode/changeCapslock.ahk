@@ -12,4 +12,4 @@ CapsLock & \::
 }
 
 ; 使用CapsLock作为ESC
-*CapsLock::SendBlind("{ESC}")
+*CapsLock::Esc
