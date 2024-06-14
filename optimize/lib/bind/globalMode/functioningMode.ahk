@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 
 ; 快捷菜单
-CapsLock & e::SendBlind("+{F10}")
+CapsLock & a::SendBlind("+{F10}")
 ;
 
 ; 切换窗口
