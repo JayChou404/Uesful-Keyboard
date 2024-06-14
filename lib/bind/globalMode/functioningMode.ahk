@@ -7,3 +7,6 @@ CapsLock & a::SendBlind("+{F10}")
 ; 切换窗口
 #Include %A_LineFile%\..\switchTake.ahk
 ;
+
+; Single hand
+#Include %A_LineFile%\..\singleHand.ahk
