@@ -7,7 +7,3 @@ CapsLock & e::SendBlind("+{F10}")
 ; 切换窗口
 #Include %A_LineFile%\..\switchTake.ahk
 ;
-
-; 切换桌面
-#Include %A_LineFile%\..\switchDesktop.ahk
-;
