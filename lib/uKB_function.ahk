@@ -1,35 +1,34 @@
-/************************************************************************
- * @description ---- 函数调用 ----
- * @file uKB_function.ahk
- * @author 
- * @date 2023/06/08
- * @version 0.0.0
- ***********************************************************************/
+#Requires AutoHotkey v2.0
 
-
-; send 盲从发送函数
-Sd(action)
+;化发送盲动作功能
+SendBlind(action)
 {
     Send "{Blind}" action
 }
 
-; 调用 提示框 函数
-tip(text, y, window, time) 
-{
-    y := y * 30
-    time := time * 1000
-    ToolTip(text, 1700, y + 850, window)
-    SetTimer () => ToolTip(,,,window), -time
+DoubleKeyPress(singlePressAction, doublePressAction) {
+    global DoubleClickInterval
+    global LastPressTime
+
+    keyPressTime := A_TickCount
+    if (keyPressTime - LastPressTime <= DoubleClickInterval) {
+        SendBlind(doublePressAction)
+        return 
+    }
+    LastPressTime := 0 ; 重置时间，防止连续多次触发
+    SendBlind(singlePressAction)
 }
 
-; 调用测试窗口
-tmp(text, y) 
-{
-    if DEBUGMODE
-        ToolTip(text, 1600, y*30+800, 20)
-}
-
-; 检测旁边是否有(), [], {}, <>
-dB() {
-    Send("Shift Down")
+BeforeActionDo_CheckMode(ControlNames*) {  ; ControlNames为当前需要使用vim模式的控件列表，逗号隔开
+    OutputVar := ControlGetFocus()  ; AHK 2.0使用函数返回值而不是直接修改变量
+    if WinExist("ahk_class #32768")  ; 检查是否存在菜单窗口
+        return 0
+    if !OutputVar  ; 变量为空，没有获取到控件名称
+        return 2
+    for index, ControlName in ControlNames {
+        ListName := ControlNames[index]
+        if InStr(OutputVar, ListName)  ; AHK 2.0使用InStr代替contains
+            return 1
+    }
+    return 0
 }

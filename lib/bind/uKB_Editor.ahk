@@ -1,34 +1,30 @@
 /************************************************************************
- * @description ---- Editor ----
- * CapsLock +:
- * Space ===  Shift
- * f === Enter
- * d === 打开快捷菜单
- * c === 复制一行
- * w === 向右移动一个单词的开头
- * e === 向右移动一个单词的结尾
- * r === 向左移动一个单词的开头
- * p === 打开命令行(Utools)
- * v === 粘贴
- * -e === 向右移动一格单词的结尾
- * -% === 移动到另一个括号去
- * 
+ * @description ---- 编辑器快捷键 ----
  * @file uKB_Editor.ahk
  * @author 
  * @date 2023/06/07
- * @version 0.0.0
- ***********************************************************************/
+ * @version 0.1.0 (优化版本)
+ ************************************************************************/
 
-CapsLock & c::Sd("{Home}+{End}^c{End}")
-CapsLock & v::Sd("+{Insert}")
-CapsLock & f::Sd("{Enter}")
-CapsLock & d::Sd("{AppsKey}")
-CapsLock & w::Sd("^{Right}")
-CapsLock & r::Sd("^{Left}")
-capslock & p::Sd("!\")
+; 复制当前行
+CapsLock & c::SendInput("{Home}+{End}^c{End}")
+; 粘贴文本
+CapsLock & v::SendInput("+{Insert}")
+; 新建行
+CapsLock & f::SendInput("{Enter}")
+; 打开右键菜单
+CapsLock & d::SendInput("{AppsKey}")
+; 向右移动到下一个单词开头
+CapsLock & w::SendInput("^{Right}")
+; 向左移动到上一个单词开头
+CapsLock & r::SendInput("^{Left}")
+; 打开命令行(Utools)
+capslock & p::SendInput("!\")
+
+; 按下CapsLock 和 Space充当Shift
 CapsLock & Space::
 {
-    Sd("{Shift down}")
+    SendInput("{Shift down}")
     KeyWait("Space")
-    Sd("{Shift Up}")
+    SendInput("{Shift Up}")
 }

@@ -1,43 +1,25 @@
-/************************************************************************
- * @description 键盘设置
- * 一共有 4 种状态:
- * CapsLock +
- * CapsLock + LAlt +
- * CapsLock + RAlt +
- * CapsLock + Space +
- * @file uKB_bind.ahk
- * @author 
- * @date 2023/06/07
- * @version 0.0.0
- ***********************************************************************/
+#Requires AutoHotkey v2.0
 
+; 帮助模式
+#Include %A_LineFile%\..\bind\help.ahk
 
+; 全局模式
+#Include %A_LineFile%\..\bind\globalMode.ahk
 
-;-x--- key change ----
-#Include %A_LineFile%\..\bind\uKB_keyChange.ahk
+; 特定 App 模式
+#Include %A_LineFile%\..\bind\appMode.ahk
 
-;---- CapsLock Section --------------------------------------------------
-;---- CapsLock + \ === CapsLock ----
-#Include %A_LineFile%\..\bind\uKB_capslock.ahk
+; ; 编辑器快捷键
+; #Include %A_LineFile%\..\bind\uKB_editor.ahk
 
-;---- ESC ----
-CapsLock:: Sd("{ESC}")
-CapsLock & q:: Sd("!{F4}")
+; ;---- Delete ----
+; #Include %A_LineFile%\..\bind\uKB_delete.ahk
 
-;---- Editor ----
-#Include %A_LineFile%\..\bind\uKB_editor.ahk
+; ;---- Screen Operation ----
+; #Include %A_LineFile%\..\bind\uKB_screen.ahk
 
-;---- Delete ----
-#Include %A_LineFile%\..\bind\uKB_delete.ahk
+; ;---- App Mode ----
+; #Include %A_LineFile%\..\bind\uKB_app.ahk
 
-;---- Move ----
-#Include %A_LineFile%\..\bind\uKB_move.ahk
-
-;---- Screen Operation ----
-#Include %A_LineFile%\..\bind\uKB_screen.ahk
-
-;---- App Mode ----
-#Include %A_LineFile%\..\bind\uKB_app.ahk
-
-;---- Function Keyboard Mode ----
-#Include %A_LineFile%\..\bind\uKB_FKeyboard.ahk
+; ;---- Function Keyboard Mode ----
+; #Include %A_LineFile%\..\bind\uKB_FKeyboard.ahk
