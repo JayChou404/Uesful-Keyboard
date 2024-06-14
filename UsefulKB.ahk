@@ -9,6 +9,7 @@
 
 #SuspendExempt
 CapsLock & p::Suspend ; 启动/停止脚本热键修改等。
+CapsLock & r::Reload ; 重启脚本
 #SuspendExempt False
 
 ;---- Initializer ----  
