@@ -21,38 +21,34 @@ $*Space UP::
     ; ToolTip(A_TickCount - isLongPressSpaceActive )
     if (A_PriorKey = "Space" && (A_TickCount - isLongPressSpaceActive) < 300)
     {
-        SendBlind "{Space}"
-        SendBlind "{Space Up}"
+        Send "{Space}"
+        Send "{Space Up}"
     }
     spacePressStartTime  := false
 }
 
 ; 特定窗口启用，关闭特定功能
 #HotIf WinActive("ahk_group closeSpace")
-    Space::
-    {
-        ; ToolTip "Close Space"
-        SendBlind "{Space}"
-    }
+    Space::Space
 #HotIf
 
 #HotIf spacePressStartTime
     ; 发送a/w/s/d,模拟移动
     *a::SendBlind "{Left}"
-    *w::SendBlind "{Up}"
+    *d::SendBlind "{Up}"
     *s::SendBlind "{Down}"
-    *d::SendBlind "{Right}"
+    *f::SendBlind "{Right}"
     
     *x::SendBlind "{Delete}" ; 删除
     *z::SendBlind "{Backspace}" ; 退格
 
-    *f::SendBlind "{Enter}" ; 回车
+    ; *f::SendBlind "{Enter}" ; 回车
 
-    *r::SendBlind "{Ctrl Down}{Left}{Ctrl Up}" ; 向左移动一个单词位
-    *t::SendBlind "{Ctrl Down}{Right}{Ctrl Up}" ; 向右移动一个单词位
+    *b::SendBlind "{Ctrl Down}{Left}{Ctrl Up}" ; 向左移动一个单词位
+    *w::SendBlind "{Ctrl Down}{Right}{Ctrl Up}" ; 向右移动一个单词位
 
     *q::SendBlind "{Home}" ; 移动到行首
-    *e::SendBlind "{End}" ; 移动到行尾
+    *r::SendBlind "{End}" ; 移动到行尾
 
     ; 发送F1-F12
     *1::F1

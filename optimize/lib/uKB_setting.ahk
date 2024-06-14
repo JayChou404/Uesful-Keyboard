@@ -15,25 +15,6 @@ ProcessSetPriority "High"  ; 脚本进程优先级为高
 SendMode "Input" ; 使 Send 等同于 SendEvent 或 SendPlay, 而不是默认的(SendInput).
 Send "{Alt Up}{Ctrl Up}{Shift Up}{LWin Up}{RWin Up}{CapsLock Up}"
 
-; {定义窗口组
-; 特定 App 禁用 Space 功能
-; GroupAdd "closeSpace", "Visual Studio Code" ; VisCode
-
-; 各种文本编辑器窗口
-GroupAdd "edit", "ahk_exe Code.exe" ; VisCode
-GroupAdd "edit", "ahk_exe idea64.exe" ; IntelliJ Idea
-GroupAdd "edit", "ahk_exe pycharm64.exe" ; PyCharm
-GroupAdd "edit", "ahk_exe Obsidian.exe" ; Obsidian文本编辑器
-
-; 白板导图类
-GroupAdd "board", "ahk_exe Xmind.exe"  ; 图片浏览器
-
-; 单键类
-GroupAdd "oneButton", "ahk_id 25887856" ; 资源管理器
-
-; 启动时需默认英文输入状态的窗口
-GroupAdd "English", "ahk_class ShImgVw:CPreviewWnd"  ; 图片浏览器
-; }
 
 ; 提高权限并重启脚本（如果必要）
 full_command_line := DllCall("GetCommandLine", "str")
