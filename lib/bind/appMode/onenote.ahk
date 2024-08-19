@@ -16,7 +16,7 @@
     MButton & b:: {
         SendBlind "!d"
         SendBlind "g{Right}{Enter}"
-    } ; 笔迹转化文本
+    } ; 切换笔
 
     MButton & e:: {
         SendBlind "!d"
@@ -31,10 +31,17 @@
     MButton & t:: {
         SendBlind "!d"
         SendBlind "l"
-    } ; 选择对象
+    } ; 套索工具
 
     MButton & x:: {
         SendBlind "{Delete}"
     } ; 删除
+    
+    MButton & 1:: {
+        SendBlind "^z"
+    } ; 撤回
 
+    MButton & 2:: {
+        SendBlind "^y"
+    } ; 重做
 #HotIf

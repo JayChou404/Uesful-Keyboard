@@ -4,6 +4,10 @@
 CapsLock & r::SendBlind("+{F10}")
 ;
 
+; 禁用右半边的键盘
+; #Include %A_LineFile%\..\disableRight.ahk
+;
+
 ; 切换窗口
 #Include %A_LineFile%\..\switchTake.ahk
 ;
