@@ -9,7 +9,7 @@ On the Windows platform, you can enhance the functionality of your keyboard by u
 #### Platform
 - Windows
 
-#### Personal Solution
+<!-- #### Personal Solution
 Customizing keyboard functionality is a matter of personal preference, and there are many complex features involved.
 
 > However, there are some bugs in the script that I couldn't resolve:
@@ -45,7 +45,7 @@ To activate the super mode, simply **long-press** the `Caps Lock` key (no need t
 > Use `caps lock` + `Alt` + `f` to enable **one-handed mode**.
 
 - Use `q`/`e` to navigate **up**/**down** the page.
-- Use `w`/`s`/`a`/`d` to navigate **up**/**down**/**left**/**right**.
+- Use `w`/`s`/`a`/`d` to navigate **up**/**down**/**left**/**right**. -->
 
 <!-- #### Ideas
 - Make it more user-friendly.
