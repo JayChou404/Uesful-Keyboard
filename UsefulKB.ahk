@@ -8,8 +8,8 @@
 #Requires AutoHotkey v2.0
 
 #SuspendExempt
-CapsLock & p::Suspend ; 启动/停止脚本热键修改等。
-CapsLock & l::Reload ; 重启脚本
+CapsLock & `::Suspend ; 启动/停止脚本热键修改等。
+CapsLock & ~::Reload ; 重启脚本
 #SuspendExempt False
 
 ;---- Initializer ----  
