@@ -17,4 +17,4 @@
 ;
 
 ; 61 键盘模式
-; #Include %A_LineFile%\..\globalMode\61KeyBoard.ahk
+#Include %A_LineFile%\..\globalMode\61KeyBoard.ahk

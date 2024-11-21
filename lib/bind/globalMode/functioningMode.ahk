@@ -14,3 +14,6 @@ CapsLock & r::SendBlind("+{F10}")
 
 ; Single hand
 #Include %A_LineFile%\..\singleHand.ahk
+
+; 通用快捷键
+#Include %A_LineFile%\..\globalKeymap.ahk

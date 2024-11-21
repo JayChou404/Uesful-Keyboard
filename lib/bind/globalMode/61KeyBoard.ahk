@@ -1,63 +1,52 @@
 #Requires AutoHotkey v2.0
 
 ; 发送F1-F12
->!q::
+
+capslock & 1::
 {
-    KeyWait "RAlt"
     SendBlind "{F1}"
 }
->!w::
+capslock & 2::
 {
-    KeyWait "RAlt"
     SendBlind "{F2}"
 }
->!e::
+capslock & 3::
 {
-    KeyWait "RAlt"
     SendBlind "{F3}"
 }
->!r::
+capslock & 4::
 {
-    KeyWait "RAlt"
     SendBlind "{F4}"
 }
->!a::
+capslock & 5::
 {
-    KeyWait "RAlt"
     SendBlind "{F5}"
 }
->!s::
+capslock & 6::
 {
-    KeyWait "RAlt"
     SendBlind "{F6}"
 }
->!d::
+capslock & 7::
 {
-    KeyWait "RAlt"
     SendBlind "{F7}"
 }
->!f::
+capslock & 8::
 {
-    KeyWait "RAlt"
     SendBlind "{F8}"
 }
->!z::
+capslock & 9::
 {
-    KeyWait "RAlt"
     SendBlind "{F9}"
 }
->!x::
+capslock & 0::
 {
-    KeyWait "RAlt"
     SendBlind "{F10}"
 }
->!c::
+capslock & -::
 {
-    KeyWait "RAlt"
     SendBlind "{F11}"
 }
->!v::
+capslock & =::
 {
-    KeyWait "RAlt"
     SendBlind "{F12}"
 }
