@@ -7,11 +7,6 @@
  ***********************************************************************/
 #Requires AutoHotkey v2.0
 
-#SuspendExempt
-CapsLock & `::Suspend ; 启动/停止脚本热键修改等。
-CapsLock & ~::Reload ; 重启脚本
-#SuspendExempt False
-
 ;---- Initializer ----  
 #Include %A_LineFile%\..\lib\uKB_setting.ahk
 
