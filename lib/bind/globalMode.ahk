@@ -1,5 +1,8 @@
 #Requires AutoHotkey v2.0
 
+; 禁用键位
+#Include %A_LineFile%\..\globalMode\disable.ahk
+
 ; 更改键位
 #Include %A_LineFile%\..\globalMode\changKeyPosition.ahk
 ;
