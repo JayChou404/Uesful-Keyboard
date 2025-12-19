@@ -1,6 +1,6 @@
 # Useful KeyBoard
 
-在 Windows 平台中，通过 autoHotkey 重新利用自定义键盘功能。组合其它功能实现强大的
+在 Windows 平台中，通过 autoHotkey 重新利用自定义键盘功能。组合其它功能实现各种自定义功能。
 
 ## 使用的技术
 - AutoHotkey
